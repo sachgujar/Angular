@@ -1,0 +1,15 @@
+<div >
+    <input  type="text" [value] = "title" (input) = "title = $event.target.value"/> 
+    <br/>
+    <br/>
+    <br/>
+    <input #secondTextVariable [value]="secondTitle" type="text" (keyup) = "fun(secondTextVariable)"/> 
+    <br/>
+    <br/>
+    <br/>
+    <h1> {{"Length of  above Second Text string using input event is :  " + title.length}}</h1>
+    <br/>
+    <br/>
+    <br/>
+    <h1> {{"Length of  above Second Text string using keyup event and tepmlate referance varibale is  :  " + secondTitle.length}}</h1>
+</div>  
