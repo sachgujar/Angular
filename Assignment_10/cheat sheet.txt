@@ -1,0 +1,5 @@
+1) Install bootstrap
+    ng install ngx-bootstrap bootstrap --save
+
+2) Add following line in styles array in angular.josn:
+    node_modules/ngx-bootstrap/datepicker/bs-datepicker.css

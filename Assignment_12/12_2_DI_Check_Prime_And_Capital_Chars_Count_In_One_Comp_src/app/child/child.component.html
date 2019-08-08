@@ -1,0 +1,16 @@
+<div class="container-fluid" style="margin-top: 2%;"> 
+  <div class="row">
+    <div class="col-lg-3 offset-5">
+      <label>Enter Number:</label>
+      <input type="number" class="form-control" [(ngModel)]="num" (input)="onNumInput()">
+      <label>{{num}}  {{message}}</label>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-3 offset-5">
+        <label>Enter String:</label>
+      <input type="text" class="form-control" [(ngModel)]="str" (input)="onCharInput()">
+      <label>{{count}} chars are capital in {{str}} </label>
+    </div>
+  </div>
+</div>
