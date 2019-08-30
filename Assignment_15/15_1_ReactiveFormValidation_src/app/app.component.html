@@ -1,0 +1,132 @@
+<div class="container">
+  <div  class="row">
+    <div class="col-md-12">
+        <div class="col-8 mx-auto" style="margin-top:5px; border: 4px solid ; border-radius: 2%;">
+          <div class="row" >
+              <div class="col-md-6">
+                  <p style="font-size:30px;text-align:Center"> <span style="color:blueviolet; font-size:50px;">Contact Our</span>
+                    <br/> <span>Customer Support Center</span>
+                </p>
+              </div>
+              <div class="col-md-6" style="padding:1px;"> 
+                  <img src="../assets/MarvellousImage.jpeg" />
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4>Contact Information</h4>
+              <h5>Please fill out your contact information bellow</h5>
+            </div>
+          </div>
+          <form  [formGroup]="complaintForm"> 
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" >
+                      <label>Name *</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{'is-invalid': complaintForm.controls.firstName.invalid && complaintForm.controls.firstName.touched,
+                      'is-valid': complaintForm.controls.firstName.valid && complaintForm.controls.firstName.touched}"/>
+                      <label>First Name
+                      </label>
+                      <div *ngIf="complaintForm.controls.firstName.errors && complaintForm.controls.firstName.touched" class="invalid-feedback d-block">
+                        <span *ngIf="complaintForm.controls.firstName.errors.required">First name is required</span>
+                        <span *ngIf="complaintForm.controls.firstName.errors.pattern">Please enter only alphabates</span>
+          
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label>&nbsp;</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{'is-invalid': complaintForm.controls.lastName.invalid && complaintForm.controls.lastName.touched,
+                      'is-valid': complaintForm.controls.lastName.valid}"/>
+                      <label>Last Name</label>
+                      <div *ngIf="complaintForm.controls.lastName.errors && complaintForm.controls.lastName.touched" class="invalid-feedback d-block">
+                        <span *ngIf="complaintForm.controls.lastName.errors.required">Last name is required</span>
+                        <span *ngIf="complaintForm.controls.lastName.errors.pattern">Please enter only alphabates</span>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label>Email *</label>
+                    <input type="text" class="form-control" formControlName="email"  [ngClass]="{'is-invalid': complaintForm.get('email').invalid && complaintForm.get('email').touched,
+                    'is-valid': complaintForm.get('email').valid}" />
+                    <div *ngIf="complaintForm.get('email').errors && complaintForm.get('email').touched">
+                      <span *ngIf="complaintForm.get('email').errors.required" class="invalid-feedback d-block"> Email is required</span>
+                      <span *ngIf="complaintForm.get('email').errors.pattern" class="invalid-feedback d-block"> Please enter valid email</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label>Phone *</label>
+                    <input type="tel" formControlName="phone" class="form-control" [ngClass]="{
+                      'is-invalid': complaintForm.controls.phone.invalid && complaintForm.controls.phone.touched,
+                    'is-valid': complaintForm.controls.phone.valid}"/>
+                    <div *ngIf="complaintForm.controls.phone.errors && complaintForm.controls.phone.touched" class="invalid-feedback d-block">
+                      <span *ngIf="complaintForm.controls.phone.errors.required">Phone is required</span> 
+                      <span *ngIf="complaintForm.controls.phone.errors.pattern">Please enter only numbers</span>
+                      <span *ngIf="complaintForm.controls.phone.errors.minlength"> <br>Please enter {{complaintForm.controls.phone.errors.minlength.requiredLength - complaintForm.controls.phone.errors.minlength.actualLength }} more numbers</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="city" 
+                    [ngClass]="{'is-invalid':complaintForm.get('city').invalid && complaintForm.get('city').touched,
+                    'is-valid': complaintForm.get('city').valid && complaintForm.get('city').touched }" />
+                    <div *ngIf="complaintForm.get('city').errors && complaintForm.get('city').touched">
+                      <span *ngIf="complaintForm.get('city').errors.required" class="d-block invalid-feedback">City is required</span>
+                      <span *ngIf="complaintForm.get('city').errors.pattern" class="d-block invalid-feedback"> Please enter only alphabates</span>
+                      <span *ngIf="complaintForm.get('city').errors.minlength" class="d-block invalid-feedback">Please enter {{complaintForm.get('city').errors.minlength.requiredLength - complaintForm.get('city').errors.minlength.actualLength}} more characters</span>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>State</label>
+                    <select formControlName="state" class="custom-select">
+                      <option *ngFor="let s of arrStates" [value]="s">{{s}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Zip * </label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid': complaintForm.get('zip').invalid && complaintForm.get('zip').touched,
+                  'is-valid': complaintForm.get('zip').valid && complaintForm.get('zip').touched}" formControlName="zip" />
+                    <div *ngIf="complaintForm.get('zip').errors && complaintForm.get('zip').touched">
+                      <span class="d-block invalid-feedback" *ngIf="complaintForm.get('zip').errors.required">Zip is required</span>
+                      <span class="d-block invalid-feedback" *ngIf="complaintForm.get('zip').errors.pattern">Zip should contain 5 digits</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label>comment *</label>
+                    <textarea class="form-control" formControlName="comment" [ngClass]="{
+                      'is-invalid': complaintForm.get('comment').invalid && complaintForm.get('comment').touched,
+                      'is-valid': complaintForm.get('comment').valid && complaintForm.get('comment').touched}"
+                      rows="5"></textarea>
+            
+                      <div *ngIf="complaintForm.get('comment').errors && complaintForm.get('comment').touched">
+                        <span class="d-block invalid-feedback" *ngIf="complaintForm.get('comment').errors.required">
+                          Comment is required
+                        </span>
+                        <span class="d-block invalid-feedback" *ngIf="complaintForm.get('comment').errors.minlength">
+                          Please enter {{complaintForm.get('comment').errors.minlength.requiredLength - complaintForm.get('comment').errors.minlength.actualLength}} more characters
+                        </span>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <button class="btn form-control btn-primary col-md-6" [disabled]="!complaintForm.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+  </div>
+</div>
