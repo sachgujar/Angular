@@ -1,0 +1,14 @@
+<h1>Current Gold Rate</h1>
+
+<table class="table table-sm">
+    <thead>
+        <th>Type</th>
+        <th>Price</th>
+    </thead>
+    <ng-container *ngFor="let gold of goldDetailArray">
+        <tr class="table-dark">
+            <td>{{gold.type}}</td>
+            <td>{{gold.price}}</td>
+        </tr>
+    </ng-container>
+</table>

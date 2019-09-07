@@ -1,0 +1,17 @@
+<h1>Current Silver Rate</h1>
+<table class="table table-sm">
+  <thead>
+    <th>Type</th>
+    <th>Rate</th>
+  </thead>
+  <ng-container *ngFor="let silver of silverDetailArray">
+    <tr class="table-dark">
+      <td>{{silver.type}}</td>
+      <td>{{silver.price}}</td>
+        <!-- <td>
+          <button class="btn btn-outline-info" (click)="studentService.populateForm(student)">Edit Information</button>
+          <button class="btn btn-outline-danger" (click)="onDelete(student.$key)">Cancel Addmission</button>
+        </td> -->
+    </tr>
+  </ng-container>
+</table>
